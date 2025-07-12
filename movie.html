@@ -50,27 +50,7 @@
     <section id="hero" class="overflow-hidden relative h-screen">
         <div class="absolute inset-0 opacity-100 hero-slide">
             <img src="./assets/images/slider/slider1.avif" alt="Hero Background" class="object-cover absolute inset-0 w-full h-full" />
-            <video src="./assets/videos/mov_bbb.mp4" class="hidden object-cover absolute inset-0 w-full h-full" playsinline></video>
-            <div class="absolute inset-0 hero-gradient"></div>
-        </div>
-        <div class="absolute inset-0 opacity-0 hero-slide">
-            <img src="./assets/images/slider/slider2.avif" alt="Hero Background" class="object-cover absolute inset-0 w-full h-full" />
-            <video src="./assets/videos/mov_bbb.mp4" class="hidden object-cover absolute inset-0 w-full h-full" playsinline></video>
-            <div class="absolute inset-0 hero-gradient"></div>
-        </div>
-        <div class="absolute inset-0 opacity-0 hero-slide">
-            <img src="./assets/images/slider/slider3.avif" alt="Hero Background" class="object-cover absolute inset-0 w-full h-full" />
-            <video src="./assets/videos/mov_bbb.mp4" class="hidden object-cover absolute inset-0 w-full h-full" playsinline></video>
-            <div class="absolute inset-0 hero-gradient"></div>
-        </div>
-        <div class="absolute inset-0 opacity-0 hero-slide">
-            <img src="./assets/images/slider/slider4.avif" alt="Hero Background" class="object-cover absolute inset-0 w-full h-full" />
-            <video src="./assets/videos/mov_bbb.mp4" class="hidden object-cover absolute inset-0 w-full h-full" playsinline></video>
-            <div class="absolute inset-0 hero-gradient"></div>
-        </div>
-        <div class="absolute inset-0 opacity-0 hero-slide">
-            <img src="./assets/images/slider/slider5.avif" alt="Hero Background" class="object-cover absolute inset-0 w-full h-full" />
-            <video src="./assets/videos/mov_bbb.mp4" class="hidden object-cover absolute inset-0 w-full h-full" playsinline></video>
+            <video id="heroVideo" src="./assets/videos/mov_bbb.mp4" class="hidden object-cover absolute inset-0 w-full h-full" playsinline></video>
             <div class="absolute inset-0 hero-gradient"></div>
         </div>
         <!-- Mute/Unmute Button -->
@@ -93,7 +73,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                             </svg>
                         </button>
-                        <a href="#" class="flex items-center px-8 py-2 space-x-2 text-lg font-bold text-white rounded-lg transition-all duration-300 bg-fire-red hover:bg-red-700 btn-glow rtl:space-x-reverse">
+                        <a href="#" id="watchNow" class="flex items-center px-8 py-2 space-x-2 text-lg font-bold text-white rounded-lg transition-all duration-300 bg-fire-red hover:bg-red-700 btn-glow rtl:space-x-reverse">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z" />
                             </svg>
@@ -107,25 +87,18 @@
                 </div>
             </div>
         </div>
-        <!-- Hero Navigation Dots -->
-        <div class="flex absolute bottom-8 left-1/2 z-20 space-x-3 transform -translate-x-1/2 rtl:space-x-reverse">
-            <button class="w-full h-[72px] hero-dot opacity-75 hover:opacity-100 hover:scale-110 transition-all duration-300"><img src="./assets/images/logos/logo1.avif" alt="logo1" class="object-contain w-full h-full" /></button>
-            <button class="w-full h-[72px] hero-dot opacity-75 hover:opacity-100 hover:scale-110 transition-all duration-300"><img src="./assets/images/logos/logo2.avif" alt="logo2" class="object-contain w-full h-full" /></button>
-            <button class="w-full h-[72px] hero-dot opacity-75 hover:opacity-100 hover:scale-110 transition-all duration-300"><img src="./assets/images/logos/logo3.avif" alt="logo3" class="object-contain w-full h-full" /></button>
-            <button class="w-full h-[72px] hero-dot opacity-75 hover:opacity-100 hover:scale-110 transition-all duration-300"><img src="./assets/images/logos/logo4.avif" alt="logo4" class="object-contain w-full h-full" /></button>
-            <button class="w-full h-[72px] hero-dot opacity-75 hover:opacity-100 hover:scale-110 transition-all duration-300"><img src="./assets/images/logos/logo5.avif" alt="logo5" class="object-contain w-full h-full" /></button>
-        </div>
+        <!-- Hero Navigation Dots (removed for single hero item) -->
     </section>
 
     <!-- Tabs Section -->
     <div class="container px-6 py-10 mx-auto">
         <div class="flex flex-wrap gap-2 mb-6">
-            <button data-tab="details" class="tab px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">التفاصيل</button>
-            <button data-tab="episodes" class="tab px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">الحلقات</button>
-            <button data-tab="info" class="tab px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">البيانات</button>
-            <button data-tab="cast" class="tab px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">الممثلين</button>
-            <button data-tab="related" class="tab px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">ذات الصلة</button>
-            <button data-tab="comments" class="tab px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">التعليقات</button>
+            <button data-tab="details" class="tab flex-1 text-center px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">التفاصيل</button>
+            <button data-tab="episodes" class="tab flex-1 text-center px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">الحلقات</button>
+            <button data-tab="info" class="tab flex-1 text-center px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">البيانات</button>
+            <button data-tab="cast" class="tab flex-1 text-center px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">الممثلين</button>
+            <button data-tab="related" class="tab flex-1 text-center px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">ذات الصلة</button>
+            <button data-tab="comments" class="tab flex-1 text-center px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">التعليقات</button>
         </div>
         <div id="details" class="tab-content animate-fade-in">
             <h2 class="mb-4 text-xl font-bold">تفاصيل الفيلم</h2>
@@ -177,6 +150,23 @@
                 this.classList.add('bg-fire-red');
             });
         });
+
+        const watchBtn = document.getElementById('watchNow');
+        if(watchBtn){
+            watchBtn.addEventListener('click', function(e){
+                e.preventDefault();
+                const video = document.getElementById('heroVideo');
+                if(video){
+                    video.classList.remove('hidden');
+                    video.muted = false;
+                    video.play().catch(()=>{});
+                    const requestFull = video.requestFullscreen || video.webkitRequestFullscreen || video.msRequestFullscreen;
+                    if(requestFull){
+                        requestFull.call(video);
+                    }
+                }
+            });
+        }
     </script>
 </body>
 </html>
