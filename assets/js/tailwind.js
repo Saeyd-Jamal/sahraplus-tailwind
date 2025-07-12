@@ -1,6 +1,9 @@
 tailwind.config = {
     theme: {
         extend: {
+            maxWidth: {
+                'screen-95%': '95%',
+            },
             colors: {
                 'fire-red': '#E50914',
                 'dark-black': '#0F0F0F',

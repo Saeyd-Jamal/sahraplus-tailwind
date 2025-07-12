@@ -11,7 +11,13 @@ const swiperHorizontal = new Swiper(".mySwiper-horizontal", {
     640: { slidesPerView: 3.2 },
     1024: { slidesPerView: 5.2 },
   },
+  on: {
+    init: toggleNavButtons,
+    slideChange: toggleNavButtons,
+    resize: toggleNavButtons,
+  },
 });
+
 document.querySelectorAll(".mySwiper-horizontal").forEach((swiper) => {
   swiper.addEventListener("mouseenter", () => {
     swiper.classList.add("z-50");
@@ -34,7 +40,13 @@ const swiperVertical = new Swiper(".mySwiper-vertical", {
     640: { slidesPerView: 4.2 },
     1024: { slidesPerView: 6.2 },
   },
+  on: {
+    init: toggleNavButtons,
+    slideChange: toggleNavButtons,
+    resize: toggleNavButtons,
+  },
 });
+
 const swiperCategories = new Swiper(".mySwiper-categories", {
   slidesPerView: 6.2,
   spaceBetween: 10,
@@ -47,6 +59,11 @@ const swiperCategories = new Swiper(".mySwiper-categories", {
     320: { slidesPerView: 3.2 },
     640: { slidesPerView: 5.2 },
     1024: { slidesPerView: 8.2 },
+  },
+  on: {
+    init: toggleNavButtons,
+    slideChange: toggleNavButtons,
+    resize: toggleNavButtons,
   },
 });
 
@@ -63,20 +80,43 @@ new Swiper(".best10Swiper", {
     640: { slidesPerView: 3.5 },
     1024: { slidesPerView: 5.5 },
   },
+  on: {
+    init: toggleNavButtons,
+    slideChange: toggleNavButtons,
+    resize: toggleNavButtons,
+  },
 });
+
+function toggleNavButtons(swiper) {
+  const nextBtn = swiper.el.querySelector(".swiper-button-next");
+  const prevBtn = swiper.el.querySelector(".swiper-button-prev");
+
+  if (swiper.isBeginning) {
+    prevBtn.classList.add("opacity-0", "pointer-events-none");
+  } else {
+    prevBtn.classList.remove("opacity-0", "pointer-events-none");
+  }
+
+  if (swiper.isEnd) {
+    nextBtn.classList.add("opacity-0", "pointer-events-none");
+  } else {
+    nextBtn.classList.remove("opacity-0", "pointer-events-none");
+  }
+}
 
 // *- Navbar -*
 window.addEventListener("scroll", function () {
   const navbar = document.getElementById("navbar");
-  const heroSection = document.getElementById("hero");
-  const heroHeight = heroSection.offsetHeight;
 
-  if (window.scrollY > heroHeight - 100) {
+  if (window.scrollY > 10) {
+    navbar.classList.remove("navbar-initial");
     navbar.classList.add("bg-navbar-dark");
   } else {
     navbar.classList.remove("bg-navbar-dark");
+    navbar.classList.add("navbar-initial");
   }
 });
+
 $(document).ready(function () {
   // تبديل إلى قائمة اللغة
   $('#language-toggle').on('click', function (e) {
