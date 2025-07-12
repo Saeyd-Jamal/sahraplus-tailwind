@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <!-- Custom CSS -->
     <link href="./assets/css/style.css" rel="stylesheet" />
+    <!-- Plyr for advanced video controls -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 </head>
 <body class="text-white bg-dark-black">
     <!-- Navigation Header (copied from index) -->
@@ -90,6 +92,11 @@
         <!-- Hero Navigation Dots (removed for single hero item) -->
     </section>
 
+    <!-- Main Video (plays on click) -->
+    <section id="playerSection" class="py-8">
+        <video id="watchVideo" class="hidden mx-auto w-full max-w-4xl" src="./assets/videos/mov_bbb.mp4" playsinline></video>
+    </section>
+
     <!-- Tabs Section -->
     <div class="container px-6 py-10 mx-auto">
         <div class="flex flex-wrap gap-2 mb-6">
@@ -102,27 +109,139 @@
         </div>
         <div id="details" class="tab-content animate-fade-in">
             <h2 class="mb-4 text-xl font-bold">تفاصيل الفيلم</h2>
-            <p class="text-gray-300 leading-relaxed">هذا القسم يحتوي على نبذة عن قصة الفيلم ومعلومات عامة عنه.</p>
+            <p class="text-gray-300 leading-relaxed mb-4">قصة تشويقية تدور حول بطل يسعى للانتقام بعد خيانة أصدقائه. تتصاعد الأحداث في قالب من الأكشن والإثارة.</p>
+            <ul class="space-y-1 text-gray-300 list-disc list-inside">
+                <li>تصنيف العمل: أكشن، دراما</li>
+                <li>مدة الحلقة: 45 دقيقة</li>
+                <li>سنة الإنتاج: 2024</li>
+            </ul>
         </div>
         <div id="episodes" class="tab-content hidden animate-fade-in">
             <h2 class="mb-4 text-xl font-bold">الحلقات</h2>
-            <p class="text-gray-300 leading-relaxed">قائمة الحلقات المتوفرة لهذا العمل.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="movie-slider-card">
+                    <img src="https://placehold.co/320x190?text=الحلقة+1" alt="الحلقة 1" class="object-cover w-full rounded-md aspect-video">
+                    <div class="movie-slider-details">
+                        <h3 class="text-lg font-bold">الحلقة 1</h3>
+                        <div class="movie-slider-line">
+                            <span>45:00</span>
+                            <span class="text-green-400">•</span>
+                            <span>أكشن</span>
+                        </div>
+                        <div class="pr-2 text-xs font-bold text-teal-400 border-r-4 border-teal-500">عنوان تشويقي</div>
+                    </div>
+                </div>
+                <div class="movie-slider-card">
+                    <img src="https://placehold.co/320x190?text=الحلقة+2" alt="الحلقة 2" class="object-cover w-full rounded-md aspect-video">
+                    <div class="movie-slider-details">
+                        <h3 class="text-lg font-bold">الحلقة 2</h3>
+                        <div class="movie-slider-line">
+                            <span>45:00</span>
+                            <span class="text-green-400">•</span>
+                            <span>أكشن</span>
+                        </div>
+                        <div class="pr-2 text-xs font-bold text-teal-400 border-r-4 border-teal-500">عنوان تشويقي</div>
+                    </div>
+                </div>
+                <div class="movie-slider-card">
+                    <img src="https://placehold.co/320x190?text=الحلقة+3" alt="الحلقة 3" class="object-cover w-full rounded-md aspect-video">
+                    <div class="movie-slider-details">
+                        <h3 class="text-lg font-bold">الحلقة 3</h3>
+                        <div class="movie-slider-line">
+                            <span>45:00</span>
+                            <span class="text-green-400">•</span>
+                            <span>أكشن</span>
+                        </div>
+                        <div class="pr-2 text-xs font-bold text-teal-400 border-r-4 border-teal-500">عنوان تشويقي</div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="info" class="tab-content hidden animate-fade-in">
             <h2 class="mb-4 text-xl font-bold">البيانات</h2>
-            <p class="text-gray-300 leading-relaxed">المدة، نوع الفيلم، سنة الإنتاج والمزيد.</p>
+            <table class="w-full text-right text-gray-300">
+                <tr>
+                    <td class="py-1">النوع</td>
+                    <td class="py-1">أكشن / دراما</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                    <td class="py-1">المدة</td>
+                    <td class="py-1">45 دقيقة</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                    <td class="py-1">تاريخ العرض</td>
+                    <td class="py-1">2024</td>
+                </tr>
+            </table>
         </div>
         <div id="cast" class="tab-content hidden animate-fade-in">
             <h2 class="mb-4 text-xl font-bold">الممثلين</h2>
-            <p class="text-gray-300 leading-relaxed">أسماء الممثلين المشاركين في الفيلم.</p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                <div>
+                    <img src="https://placehold.co/150x200" class="mx-auto mb-2 rounded-md" alt="ممثل 1">
+                    <span class="block text-sm">ممثل 1</span>
+                </div>
+                <div>
+                    <img src="https://placehold.co/150x200" class="mx-auto mb-2 rounded-md" alt="ممثل 2">
+                    <span class="block text-sm">ممثل 2</span>
+                </div>
+                <div>
+                    <img src="https://placehold.co/150x200" class="mx-auto mb-2 rounded-md" alt="ممثل 3">
+                    <span class="block text-sm">ممثل 3</span>
+                </div>
+                <div>
+                    <img src="https://placehold.co/150x200" class="mx-auto mb-2 rounded-md" alt="ممثل 4">
+                    <span class="block text-sm">ممثل 4</span>
+                </div>
+            </div>
         </div>
         <div id="related" class="tab-content hidden animate-fade-in">
             <h2 class="mb-4 text-xl font-bold">أعمال ذات صلة</h2>
-            <p class="text-gray-300 leading-relaxed">اقتراحات لأعمال مشابهة قد تهمك.</p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="movie-vertical-card">
+                    <img src="https://placehold.co/270x400?text=عمل+1" alt="عمل 1" class="object-cover w-full rounded-md">
+                    <div class="text-xs text-center movie-vertical-details">
+                        <span class="block font-bold text-white">عمل 1</span>
+                    </div>
+                </div>
+                <div class="movie-vertical-card">
+                    <img src="https://placehold.co/270x400?text=عمل+2" alt="عمل 2" class="object-cover w-full rounded-md">
+                    <div class="text-xs text-center movie-vertical-details">
+                        <span class="block font-bold text-white">عمل 2</span>
+                    </div>
+                </div>
+                <div class="movie-vertical-card">
+                    <img src="https://placehold.co/270x400?text=عمل+3" alt="عمل 3" class="object-cover w-full rounded-md">
+                    <div class="text-xs text-center movie-vertical-details">
+                        <span class="block font-bold text-white">عمل 3</span>
+                    </div>
+                </div>
+                <div class="movie-vertical-card">
+                    <img src="https://placehold.co/270x400?text=عمل+4" alt="عمل 4" class="object-cover w-full rounded-md">
+                    <div class="text-xs text-center movie-vertical-details">
+                        <span class="block font-bold text-white">عمل 4</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="comments" class="tab-content hidden animate-fade-in">
             <h2 class="mb-4 text-xl font-bold">التعليقات</h2>
-            <p class="text-gray-300 leading-relaxed">مساحة لعرض تعليقات المشاهدين.</p>
+            <div class="space-y-4">
+                <div class="flex items-start space-x-3 rtl:space-x-reverse">
+                    <img src="./assets/images/avatar.jpg" class="w-10 h-10 rounded-full" alt="Avatar">
+                    <div>
+                        <p class="font-bold">مستخدم 1</p>
+                        <p class="text-sm text-gray-300">فيلم رائع يستحق المشاهدة!</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-3 rtl:space-x-reverse">
+                    <img src="./assets/images/avatar.jpg" class="w-10 h-10 rounded-full" alt="Avatar">
+                    <div>
+                        <p class="font-bold">مستخدم 2</p>
+                        <p class="text-sm text-gray-300">أداء الممثلين كان ممتازاً.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -140,6 +259,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="./assets/js/script.js"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
     <script>
         document.querySelectorAll('.tab').forEach(btn => {
             btn.addEventListener('click', function(){
@@ -151,20 +271,15 @@
             });
         });
 
+        const player = new Plyr('#watchVideo');
         const watchBtn = document.getElementById('watchNow');
-        if(watchBtn){
+        const watchVideo = document.getElementById('watchVideo');
+        if (watchBtn && watchVideo) {
             watchBtn.addEventListener('click', function(e){
                 e.preventDefault();
-                const video = document.getElementById('heroVideo');
-                if(video){
-                    video.classList.remove('hidden');
-                    video.muted = false;
-                    video.play().catch(()=>{});
-                    const requestFull = video.requestFullscreen || video.webkitRequestFullscreen || video.msRequestFullscreen;
-                    if(requestFull){
-                        requestFull.call(video);
-                    }
-                }
+                watchVideo.classList.remove('hidden');
+                player.play();
+                player.fullscreen.enter();
             });
         }
     </script>
