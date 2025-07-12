@@ -17,8 +17,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <!-- Custom CSS -->
     <link href="./assets/css/style.css" rel="stylesheet" />
+<!-- <<<<<<< k1rrry-codex/create-movie-detail-page-with-tabs -->
     <!-- Plyr for advanced video controls -->
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+<!-- ======= -->
+<!-- >>>>>>> main -->
 </head>
 <body class="text-white bg-dark-black">
     <!-- Navigation Header (copied from index) -->
@@ -109,6 +112,7 @@
         </div>
         <div id="details" class="tab-content animate-fade-in">
             <h2 class="mb-4 text-xl font-bold">تفاصيل الفيلم</h2>
+<!-- <<<<<<< k1rrry-codex/create-movie-detail-page-with-tabs -->
             <p class="text-gray-300 leading-relaxed mb-4">قصة تشويقية تدور حول بطل يسعى للانتقام بعد خيانة أصدقائه. تتصاعد الأحداث في قالب من الأكشن والإثارة.</p>
             <ul class="space-y-1 text-gray-300 list-disc list-inside">
                 <li>تصنيف العمل: أكشن، دراما</li>
@@ -242,6 +246,29 @@
                     </div>
                 </div>
             </div>
+<!-- ======= -->
+            <p class="text-gray-300 leading-relaxed">هذا القسم يحتوي على نبذة عن قصة الفيلم ومعلومات عامة عنه.</p>
+        </div>
+        <div id="episodes" class="tab-content hidden animate-fade-in">
+            <h2 class="mb-4 text-xl font-bold">الحلقات</h2>
+            <p class="text-gray-300 leading-relaxed">قائمة الحلقات المتوفرة لهذا العمل.</p>
+        </div>
+        <div id="info" class="tab-content hidden animate-fade-in">
+            <h2 class="mb-4 text-xl font-bold">البيانات</h2>
+            <p class="text-gray-300 leading-relaxed">المدة، نوع الفيلم، سنة الإنتاج والمزيد.</p>
+        </div>
+        <div id="cast" class="tab-content hidden animate-fade-in">
+            <h2 class="mb-4 text-xl font-bold">الممثلين</h2>
+            <p class="text-gray-300 leading-relaxed">أسماء الممثلين المشاركين في الفيلم.</p>
+        </div>
+        <div id="related" class="tab-content hidden animate-fade-in">
+            <h2 class="mb-4 text-xl font-bold">أعمال ذات صلة</h2>
+            <p class="text-gray-300 leading-relaxed">اقتراحات لأعمال مشابهة قد تهمك.</p>
+        </div>
+        <div id="comments" class="tab-content hidden animate-fade-in">
+            <h2 class="mb-4 text-xl font-bold">التعليقات</h2>
+            <p class="text-gray-300 leading-relaxed">مساحة لعرض تعليقات المشاهدين.</p>
+<!-- >>>>>>> main -->
         </div>
     </div>
 
@@ -259,7 +286,10 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="./assets/js/script.js"></script>
+<!-- <<<<<<< k1rrry-codex/create-movie-detail-page-with-tabs -->
     <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+<!-- ======= -->
+<!-- >>>>>>> main -->
     <script>
         document.querySelectorAll('.tab').forEach(btn => {
             btn.addEventListener('click', function(){
@@ -271,6 +301,7 @@
             });
         });
 
+// <<<<<<< k1rrry-codex/create-movie-detail-page-with-tabs
         const player = new Plyr('#watchVideo');
         const watchBtn = document.getElementById('watchNow');
         const watchVideo = document.getElementById('watchVideo');
@@ -280,6 +311,22 @@
                 watchVideo.classList.remove('hidden');
                 player.play();
                 player.fullscreen.enter();
+// =======
+        const watchBtn = document.getElementById('watchNow');
+        if(watchBtn){
+            watchBtn.addEventListener('click', function(e){
+                e.preventDefault();
+                const video = document.getElementById('heroVideo');
+                if(video){
+                    video.classList.remove('hidden');
+                    video.muted = false;
+                    video.play().catch(()=>{});
+                    const requestFull = video.requestFullscreen || video.webkitRequestFullscreen || video.msRequestFullscreen;
+                    if(requestFull){
+                        requestFull.call(video);
+                    }
+                }
+// >>>>>>> main
             });
         }
     </script>
