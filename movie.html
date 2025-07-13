@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تفاصيل الفيلم - سهرة بلس</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./assets/js/tailwind.js"></script>
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- Custom CSS -->
+    <link href="./assets/css/style.css" rel="stylesheet" />
+    <!-- Plyr for advanced video controls -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+</head>
+<body class="text-white bg-dark-black">
+    <!-- Navigation Header (copied from index) -->
+    <nav id="navbar" class="fixed top-0 right-0 left-0 z-[9999] navbar-initial navbar-inset-shadow transition-all duration-500 ease-out">
+        <div class="container px-6 py-4 mx-auto">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                    <h1 class="text-3xl font-black text-fire-red font-arabic">سهرة بلس</h1>
+                </div>
+                <!-- Navigation Links -->
+                <div class="hidden items-center space-x-8 md:flex rtl:space-x-reverse">
+                    <a href="index.html" class="font-medium text-white transition-colors duration-300 hover:text-fire-red">الرئيسية</a>
+                    <a href="#" class="font-medium text-white transition-colors duration-300 hover:text-fire-red">مسلسلات</a>
+                    <a href="#" class="font-medium text-white transition-colors duration-300 hover:text-fire-red">أفلام</a>
+                    <a href="#" class="font-medium text-white transition-colors duration-300 hover:text-fire-red">مباشر</a>
+                </div>
+                <!-- User Actions -->
+                <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                    <button id="open-search" class="text-white transition-colors duration-300 hover:text-neon-green">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="font-medium text-white transition-colors duration-300 hover:text-neon-green">تسجيل الدخول</button>
+                    <button class="px-6 py-2 font-medium text-white rounded-lg transition-all duration-300 bg-fire-red hover:bg-red-700 btn-glow">اشترك الآن</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section from index -->
+    <section id="hero" class="overflow-hidden relative h-screen">
+        <div class="absolute inset-0 opacity-100 hero-slide">
+            <img src="./assets/images/slider/slider1.avif" alt="Hero Background" class="object-cover absolute inset-0 w-full h-full" />
+            <video id="heroVideo" src="./assets/videos/mov_bbb.mp4" class="hidden object-cover absolute inset-0 w-full h-full" playsinline></video>
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        <!-- Mute/Unmute Button -->
+        <button id="muteBtn" class="absolute left-10 top-28 z-20 p-3 text-white rounded-full bg-black/60" data-state="muted">
+            <svg class="w-6 h-6 mute-icon" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"></path>
+            </svg>
+        </button>
+        <!-- Hero Content -->
+        <div class="flex relative z-10 items-center h-full">
+            <div class="container px-6 mx-auto">
+                <div class="max-w-[25rem] opacity-80 transition-all duration-500 ease-in-out transform translate-x-0 hero-content hover:opacity-100 hover:-translate-x-10">
+                    <div class="mb-8 h-[80px] logo-wrapper transition-all duration-500 ease-in-out">
+                        <img src="./assets/images/logos/logo1.avif" alt="logo" class="object-contain h-full transition-all duration-300 hover:scale-125" />
+                    </div>
+                    <div class="text-base text-gray-400 transition-all duration-300 episode animate-slide-up">الموسم 1، الحلقة 1</div>
+                    <div class="flex items-center my-4 space-x-2 rtl:space-x-reverse animate-slide-up">
+                        <button class="flex items-center px-2 py-2 text-lg font-bold text-white bg-gray-800 bg-opacity-80 rounded-full transition-all duration-300 hover:bg-red-700 btn-glow rtl:space-x-reverse">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                            </svg>
+                        </button>
+                        <a href="#" id="watchNow" class="flex items-center px-8 py-2 space-x-2 text-lg font-bold text-white rounded-lg transition-all duration-300 bg-fire-red hover:bg-red-700 btn-glow rtl:space-x-reverse">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                            <span>شاهد الآن</span>
+                        </a>
+                    </div>
+                    <p class="mb-6 max-w-xl text-xl leading-relaxed text-gray-200 transition-all duration-300 md:text-lg animate-slide-up description">
+                        بعد خيانة أصدقائه والمرأة التي أحبها، يجد مجد نفسه خلف القضبان...
+                    </p>
+                    <div class="flex flex-wrap items-center mb-6 space-x-3 text-sm text-gray-400 rtl:space-x-reverse tags animate-slide-up"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero Navigation Dots (removed for single hero item) -->
+    </section>
+
+    <!-- Main Video (plays on click) -->
+    <section id="playerSection" class="hidden py-8">
+        <video id="watchVideo" class="mx-auto w-full max-w-4xl" src="./assets/videos/mov_bbb.mp4" playsinline></video>
+    </section>
+
+    <!-- Tabs Section -->
+    <div class="container px-6 py-10 mx-auto">
+        <div class="flex flex-wrap gap-2 mb-6">
+            <button data-tab="details" class="tab flex-1 text-center px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">التفاصيل</button>
+            <button data-tab="episodes" class="tab flex-1 text-center px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">الحلقات</button>
+            <button data-tab="info" class="tab flex-1 text-center px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">البيانات</button>
+            <button data-tab="cast" class="tab flex-1 text-center px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">الممثلين</button>
+            <button data-tab="related" class="tab flex-1 text-center px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">ذات الصلة</button>
+            <button data-tab="comments" class="tab flex-1 text-center px-4 py-2 bg-gray-800 rounded-md transition-all duration-300 hover:bg-fire-red">التعليقات</button>
+        </div>
+        <div id="details" class="tab-content animate-fade-in">
+            <h2 class="mb-4 text-xl font-bold">تفاصيل الفيلم</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">قصة تشويقية تدور حول بطل يسعى للانتقام بعد خيانة أصدقائه. تتصاعد الأحداث في قالب من الأكشن والإثارة.</p>
+            <ul class="space-y-1 text-gray-300 list-disc list-inside">
+                <li>تصنيف العمل: أكشن، دراما</li>
+                <li>مدة الحلقة: 45 دقيقة</li>
+                <li>سنة الإنتاج: 2024</li>
+            </ul>
+        </div>
+        <div id="episodes" class="tab-content hidden animate-fade-in">
+            <h2 class="mb-4 text-xl font-bold">الحلقات</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="movie-slider-card">
+                    <img src="https://placehold.co/320x190?text=الحلقة+1" alt="الحلقة 1" class="object-cover w-full rounded-md aspect-video">
+                    <div class="movie-slider-details">
+                        <h3 class="text-lg font-bold">الحلقة 1</h3>
+                        <div class="movie-slider-line">
+                            <span>45:00</span>
+                            <span class="text-green-400">•</span>
+                            <span>أكشن</span>
+                        </div>
+                        <div class="pr-2 text-xs font-bold text-teal-400 border-r-4 border-teal-500">عنوان تشويقي</div>
+                    </div>
+                </div>
+                <div class="movie-slider-card">
+                    <img src="https://placehold.co/320x190?text=الحلقة+2" alt="الحلقة 2" class="object-cover w-full rounded-md aspect-video">
+                    <div class="movie-slider-details">
+                        <h3 class="text-lg font-bold">الحلقة 2</h3>
+                        <div class="movie-slider-line">
+                            <span>45:00</span>
+                            <span class="text-green-400">•</span>
+                            <span>أكشن</span>
+                        </div>
+                        <div class="pr-2 text-xs font-bold text-teal-400 border-r-4 border-teal-500">عنوان تشويقي</div>
+                    </div>
+                </div>
+                <div class="movie-slider-card">
+                    <img src="https://placehold.co/320x190?text=الحلقة+3" alt="الحلقة 3" class="object-cover w-full rounded-md aspect-video">
+                    <div class="movie-slider-details">
+                        <h3 class="text-lg font-bold">الحلقة 3</h3>
+                        <div class="movie-slider-line">
+                            <span>45:00</span>
+                            <span class="text-green-400">•</span>
+                            <span>أكشن</span>
+                        </div>
+                        <div class="pr-2 text-xs font-bold text-teal-400 border-r-4 border-teal-500">عنوان تشويقي</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="info" class="tab-content hidden animate-fade-in">
+            <h2 class="mb-4 text-xl font-bold">البيانات</h2>
+            <table class="w-full text-right text-gray-300">
+                <tr>
+                    <td class="py-1">النوع</td>
+                    <td class="py-1">أكشن / دراما</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                    <td class="py-1">المدة</td>
+                    <td class="py-1">45 دقيقة</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                    <td class="py-1">تاريخ العرض</td>
+                    <td class="py-1">2024</td>
+                </tr>
+            </table>
+        </div>
+        <div id="cast" class="tab-content hidden animate-fade-in">
+            <h2 class="mb-4 text-xl font-bold">الممثلين</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                <div>
+                    <img src="https://placehold.co/150x200" class="mx-auto mb-2 rounded-md" alt="ممثل 1">
+                    <span class="block text-sm">ممثل 1</span>
+                </div>
+                <div>
+                    <img src="https://placehold.co/150x200" class="mx-auto mb-2 rounded-md" alt="ممثل 2">
+                    <span class="block text-sm">ممثل 2</span>
+                </div>
+                <div>
+                    <img src="https://placehold.co/150x200" class="mx-auto mb-2 rounded-md" alt="ممثل 3">
+                    <span class="block text-sm">ممثل 3</span>
+                </div>
+                <div>
+                    <img src="https://placehold.co/150x200" class="mx-auto mb-2 rounded-md" alt="ممثل 4">
+                    <span class="block text-sm">ممثل 4</span>
+                </div>
+            </div>
+        </div>
+        <div id="related" class="tab-content hidden animate-fade-in">
+            <h2 class="mb-4 text-xl font-bold">أعمال ذات صلة</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="movie-vertical-card">
+                    <img src="https://placehold.co/270x400?text=عمل+1" alt="عمل 1" class="object-cover w-full rounded-md">
+                    <div class="text-xs text-center movie-vertical-details">
+                        <span class="block font-bold text-white">عمل 1</span>
+                    </div>
+                </div>
+                <div class="movie-vertical-card">
+                    <img src="https://placehold.co/270x400?text=عمل+2" alt="عمل 2" class="object-cover w-full rounded-md">
+                    <div class="text-xs text-center movie-vertical-details">
+                        <span class="block font-bold text-white">عمل 2</span>
+                    </div>
+                </div>
+                <div class="movie-vertical-card">
+                    <img src="https://placehold.co/270x400?text=عمل+3" alt="عمل 3" class="object-cover w-full rounded-md">
+                    <div class="text-xs text-center movie-vertical-details">
+                        <span class="block font-bold text-white">عمل 3</span>
+                    </div>
+                </div>
+                <div class="movie-vertical-card">
+                    <img src="https://placehold.co/270x400?text=عمل+4" alt="عمل 4" class="object-cover w-full rounded-md">
+                    <div class="text-xs text-center movie-vertical-details">
+                        <span class="block font-bold text-white">عمل 4</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="comments" class="tab-content hidden animate-fade-in">
+            <h2 class="mb-4 text-xl font-bold">التعليقات</h2>
+            <div class="space-y-4">
+                <div class="flex items-start space-x-3 rtl:space-x-reverse">
+                    <img src="./assets/images/avatar.jpg" class="w-10 h-10 rounded-full" alt="Avatar">
+                    <div>
+                        <p class="font-bold">مستخدم 1</p>
+                        <p class="text-sm text-gray-300">فيلم رائع يستحق المشاهدة!</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-3 rtl:space-x-reverse">
+                    <img src="./assets/images/avatar.jpg" class="w-10 h-10 rounded-full" alt="Avatar">
+                    <div>
+                        <p class="font-bold">مستخدم 2</p>
+                        <p class="text-sm text-gray-300">أداء الممثلين كان ممتازاً.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-[#0f0f0f] text-white pt-10 pb-6 px-6 mt-12 border-t border-gray-800">
+        <div class="grid grid-cols-1 gap-8 mx-auto max-w-screen-xl md:grid-cols-3">
+            <div>
+                <h1 class="mb-3 text-2xl font-extrabold text-red-600">سهرة بلس</h1>
+                <p class="text-sm leading-relaxed text-gray-400">منصة ترفيهية لمشاهدة أحدث الأفلام والمسلسلات بجودة عالية.</p>
+            </div>
+        </div>
+        <div class="pt-4 mt-10 text-xs text-center text-gray-500 border-t border-gray-800">&copy; 2025 سهرة بلس. جميع الحقوق محفوظة.</div>
+    </footer>
+
+    <!-- Js -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.tab').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    const target = this.getAttribute('data-tab');
+                    document.querySelectorAll('.tab').forEach(b => b.classList.remove('bg-fire-red'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+                    document.getElementById(target).classList.remove('hidden');
+                    this.classList.add('bg-fire-red');
+                });
+            });
+
+            const playerSection = document.getElementById('playerSection');
+            const player = new Plyr('#watchVideo', {
+                controls: [
+                    'play-large',
+                    'rewind',
+                    'play',
+                    'fast-forward',
+                    'progress',
+                    'current-time',
+                    'mute',
+                    'volume',
+                    'settings',
+                    'fullscreen'
+                ]
+            });
+            const watchBtn = document.getElementById('watchNow');
+            const heroVideo = document.getElementById('heroVideo');
+            if (watchBtn && playerSection) {
+                watchBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    if (heroVideo && !heroVideo.paused) {
+                        heroVideo.pause();
+                    }
+                    playerSection.classList.remove('hidden');
+                    player.play();
+                    player.fullscreen.enter();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

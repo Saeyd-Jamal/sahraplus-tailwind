@@ -370,3 +370,9 @@ html {
   top: 0;
   left: 0;
 }
+
+/* Plyr custom theme */
+.plyr--video {
+  --plyr-color-main: #e50914; /* match fire-red */
+  border-radius: 0.5rem;
+}
