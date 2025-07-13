@@ -281,52 +281,47 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="./assets/js/script.js"></script>
     <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
-
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-          // التاب
-          document.querySelectorAll('.tab').forEach(function (btn) {
-              btn.addEventListener('click', function () {
-                  const target = this.getAttribute('data-tab');
-                  document.querySelectorAll('.tab').forEach(b => b.classList.remove('bg-fire-red'));
-                  document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
-                  document.getElementById(target).classList.remove('hidden');
-                  this.classList.add('bg-fire-red');
-              });
-          });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.tab').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    const target = this.getAttribute('data-tab');
+                    document.querySelectorAll('.tab').forEach(b => b.classList.remove('bg-fire-red'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+                    document.getElementById(target).classList.remove('hidden');
+                    this.classList.add('bg-fire-red');
+                });
+            });
 
-          // مشغل الفيديو
-          const player = new Plyr('#watchVideo');
-          const watchBtn = document.getElementById('watchNow');
-          const watchVideo = document.getElementById('watchVideo');
-
-          if (watchBtn && watchVideo) {
-              watchBtn.addEventListener('click', function (e) {
-                  e.preventDefault();
-                  watchVideo.classList.remove('hidden');
-                  player.play();
-                  player.fullscreen.enter();
-              });
-          }
-
-          // الفيديو في الصفحة الرئيسية
-          const mainWatchBtn = document.getElementById('watchNow');
-          if(mainWatchBtn){
-              mainWatchBtn.addEventListener('click', function(e){
-                  e.preventDefault();
-                  const video = document.getElementById('heroVideo');
-                  if(video){
-                      video.classList.remove('hidden');
-                      video.muted = false;
-                      video.play().catch(()=>{});
-                      const requestFull = video.requestFullscreen || video.webkitRequestFullscreen || video.msRequestFullscreen;
-                      if(requestFull){
-                          requestFull.call(video);
-                      }
-                  }
-              });
-          }
-      });
+            const playerSection = document.getElementById('playerSection');
+            const player = new Plyr('#watchVideo', {
+                controls: [
+                    'play-large',
+                    'rewind',
+                    'play',
+                    'fast-forward',
+                    'progress',
+                    'current-time',
+                    'mute',
+                    'volume',
+                    'settings',
+                    'fullscreen'
+                ]
+            });
+            const watchBtn = document.getElementById('watchNow');
+            const heroVideo = document.getElementById('heroVideo');
+            if (watchBtn && playerSection) {
+                watchBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    if (heroVideo && !heroVideo.paused) {
+                        heroVideo.pause();
+                    }
+                    playerSection.classList.remove('hidden');
+                    player.play();
+                    player.fullscreen.enter();
+                });
+            }
+        });
     </script>
 </body>
 </html>
